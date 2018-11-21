@@ -1,0 +1,13 @@
+#flexcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.flexchild{
+    background: white;
+    border-style: solid;
+    border-width: medium;
+    margin: 5px;
+    padding: 10px 10px 10px 10px;
+}
