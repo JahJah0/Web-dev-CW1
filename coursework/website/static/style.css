@@ -2,8 +2,26 @@ body
 {
     background-color: lightblue;
     height: 100%;
+    font-family: calibri;
 }
 
+/*Text settings*/
+h1
+{
+    margin: 10px 0 10px 0;
+}
+
+h2
+{
+    margin: 5px;
+}
+
+p
+{
+    
+}
+
+/*Main content box*/
 .flex-container
 {
     display: flex;
@@ -35,7 +53,7 @@ body
 }
 
 .menu {width: 100%;}
-
+/*Unsorted list*/
 .menu ul
 {
     display: flex;
@@ -45,14 +63,14 @@ body
     margin: 0;
     padding: 0;
 }
-
+/*Items in the unsorted list*/
 .menu li
 {
     display: flex;
     height: 50px;
     width: 100%;    
 }
-
+/*Text in the boxes*/
 .menu li a
 {
     background-color: blue;
@@ -65,30 +83,52 @@ body
     width: 100%;
     padding: 0 20px;
 }
-
+/*Change colour when a box is hovered over*/
 .menu li a:hover:not(.active) 
 {
     background-color: #111;
 }
-
+/*The current page is set to active and does not change colour when hovered*/
 .menu .active
 {
      background-color: #4CAF50;
 }
-
+/*Shrink navBar when screen size is < 600px and move content down*/
 @media screen and (max-width: 600px)
 {
     .flex-container {margin-top: 250px;}
     .menu ul {flex-direction: column;}
 }
 
-/**/
-h1
+/*Table container*/
+.table-container table
 {
-    margin: 10px 0 10px 0;
+    table-layout: fixed;
+    background-color: white;
+    border-radius: 25px;
+    border-collapse: collapse;
+    overflow-x: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
-p
+.table-container td {padding: 5px;}
+
+/*Image gallery*/
+.gallery img
 {
-    margin: 10px 0 10px 0;
+    width: 320px;
+    height: 220px;
+    border: 1px solid gray;
+    margin: 3px;
 }
+
+.gallery img:hover
+{
+    border: 1px solid black;
+    width: 340px;
+    height: 240px;
+}
+
+
