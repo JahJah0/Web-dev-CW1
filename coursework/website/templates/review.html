@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Review</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
+    </head>
+
+    <body>
+        <div class="navBar">
+            <div class="menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="bookroom">Book Room</a></li>
+                    <li><a href="attractions">Attractions</a></li>
+                    <li><a href="test">TEST</a></li>
+                    <li><a class="active" href="review">Review</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="flex-container">
+            <div>
+                <h2>Submit Review</h2>
+                <form action="review" method="post"><br>
+                    Name <input type="text" name="name"><br><br>
+                    Enter Review<br><textarea name="review" rows="10" cols="40"></textarea><br><br>
+                    Select Rating <select name="rating">
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select><br><br> 
+                    <input type="submit" value="Submit" style="width: 100px;"/>
+                </form>
+            </div>
+            
+            <div class="table-container">
+                <h2>Reviews</h2>
+                {% for line in reviewsFile %}
+                    <table>
+                        <tr>
+                            <td>
+                                {% for item in line %}
+                                    {{item}}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello World</title>
+        <title>Home</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
@@ -10,11 +10,11 @@
         <div class="navBar">
             <div class="menu">
                 <ul>
-                    <li><a class="active" href="/">Go home</a></li>
-                    <li><a href="link">Book room</a></li>
-                    <li><a href="link">Show Webpage</a></li>
+                    <li><a class="active" href="/">Home</a></li>
+                    <li><a href="bookroom">Book Room</a></li>
+                    <li><a href="attractions">Attractions</a></li>
                     <li><a href="test">TEST</a></li>
-                    <li><a href="link">Review</a></li>
+                    <li><a href="review">Review</a></li>
                 </ul>
             </div>
         </div>
@@ -23,22 +23,37 @@
             <div><h1>Holiday Rental Site</h1></div>
                  
             <div>
-                <p> TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEX<br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
+                <h2>Hotel Norwich</h2>
+                <p> Is located in the gud city of Norwich.<br>
+                    10/10<br>
+                    The end.
                 </p>
             </div>
             
             <div>
-                <img src="example.jpeg" alt="Example img">
-                <img src="hotel01.jpg" alt="Hotel img">
+                <div class="gallery">
+                    <h2>Image Gallery</h2>
+                    <a target="_blank" href="{{ url_for('static', filename='images/gallery1.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/gallery1.jpg') }}"></a>
+                    
+                    <a target="_blank" href="{{ url_for('static', filename='images/gallery2.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/gallery2.jpg') }}"></a>
+                    
+                    <a target="_blank" href="{{ url_for('static', filename='images/gallery3.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/gallery3.jpg') }}"></a>
+                    
+                    <a target="_blank" href="{{ url_for('static', filename='images/gallery4.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/gallery4.jpg') }}"></a>
+                    
+                    <a target="_blank" href="{{ url_for('static', filename='images/gallery5.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/gallery5.jpg') }}"></a>
+                    
+                    <a target="_blank" href="{{ url_for('static', filename='images/gallery6.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/gallery6.jpg') }}"></a>
+                </div>
             </div>
             
         </div>
-        
     </body>
 </html>
+
