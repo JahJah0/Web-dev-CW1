@@ -11,9 +11,8 @@
             <div class="menu">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="bookroom">Book Room</a></li>
+                    <li><a href="booking">Book Room</a></li>
                     <li><a href="attractions">Attractions</a></li>
-                    <li><a href="test">TEST</a></li>
                     <li><a class="active" href="review">Review</a></li>
                 </ul>
             </div>
@@ -23,8 +22,8 @@
             <div>
                 <h2>Submit Review</h2>
                 <form action="review" method="post"><br>
-                    Name <input type="text" name="name"><br><br>
-                    Enter Review<br><textarea name="review" rows="10" cols="40"></textarea><br><br>
+                    Name <input type="text" name="name" placeholder="Name"><br><br>
+                    Enter Review<br><textarea name="review" rows="10" cols="40" placeholder="Enter your review here."></textarea><br><br>
                     Select Rating <select name="rating">
                         <option value="5">5</option>
                         <option value="4">4</option>
@@ -43,7 +42,7 @@
                         <tr>
                             <td>
                                 {% for item in line %}
-                                    {{item}}
+                                    {{item}}<br>
                                 {% endfor %}
                             </td>
                         </tr>

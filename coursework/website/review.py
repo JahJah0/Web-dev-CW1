@@ -1,6 +1,7 @@
 #python for reviews page
 from website import *
 from flask import request
+import datetime
 import csv
 
 #if the request method is POST 
@@ -23,26 +24,29 @@ def addReview():
     file = os.path.join(APP_CSV, 'reviews.csv')
     reviewsFile = readFile(file)
     
-    nameIn = request.form[('name')]
-    reviewIn = request.form[('review')]
-    ratingIn = request.form[('rating')]
+    nameIn = request.form['name']
+    reviewIn = request.form['review']
+    ratingIn = request.form['rating']
+    
+    time = datetime.datetime.now()
+    formatTime = time.strftime("%H:%M %d-%m-%Y")
     
     if nameIn == "" or reviewIn == "":
         return
     else:
-        newEntry = [reviewIn, " " + ratingIn + "/5", " - " + nameIn]
+        newEntry = [nameIn, reviewIn, ratingIn + "/5", formatTime]
         reviewsFile.append(newEntry)
         writeFile(reviewsFile, file)
         return render_template('review.html', reviewsFile=reviewsFile)
 
-#
+#read file
 def readFile(aFile):
     with open(aFile, 'r') as inFile:
         reader = csv.reader(inFile)
         reader = [row for row in reader]
     return reader
 
-#
+#write to file
 def writeFile(aList, aFile):
     with open(aFile, 'w', newline="") as outFile:
         writer = csv.writer(outFile)

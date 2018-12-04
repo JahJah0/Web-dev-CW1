@@ -5,4 +5,3 @@ from website import *
 def homePage():
     
     return render_template('home.html')
-
