@@ -31,12 +31,14 @@
                                 {% for item in line %}
                                     {{item}}<br>
                                 {% endfor %}
-                                <form action="/booking/admin/confirm" method="post"><br>
-                                    <button type="submit" name="confirm" value="{{loop.index0}}">Confirm</button>
-                                </form>
-                                <form action="/booking/admin/deny" method="post"><br>    
-                                    <button type="submit" name="deny" value="{{loop.index0}}">Deny</button>
-                                </form>
+                                <div class="formBox">
+                                    <form action="/booking/admin/confirm" method="post">
+                                        <button type="submit" name="confirm" value="{{loop.index0}}">Confirm</button>
+                                    </form>
+                                    <form action="/booking/admin/deny" method="post">   
+                                        <button type="submit" name="deny" value="{{loop.index0}}">Deny</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         {% endif %}

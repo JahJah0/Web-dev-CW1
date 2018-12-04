@@ -20,7 +20,7 @@ def confirmBooking():
     index = int(lineIndex)
     line = bookingFile[index]
     newEntry = line[-1].replace("REQUEST", "CONFIRMED")
-    newEntry = [line[0], line[1], newEntry]
+    newEntry = [line[0], line[1], line[2], line[3], newEntry]
     
     bookingFile.remove(line)
     bookingFile.append(newEntry)
@@ -39,7 +39,7 @@ def denyBooking():
     index = int(lineIndex)
     line = bookingFile[index]
     newEntry = line[-1].replace("REQUEST", "DENIED")
-    newEntry = [line[0], line[1], newEntry]
+    newEntry = [line[0], line[1], line[2], line[3], newEntry]
     
     bookingFile.remove(line)
     bookingFile.append(newEntry)

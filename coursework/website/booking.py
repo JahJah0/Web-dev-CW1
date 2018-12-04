@@ -19,11 +19,13 @@ def addBooking():
     
     nameIn = request.form['name']
     emailIn = request.form['email']
+    dateStart = request.form['start']
+    dateEnd = request.form['end']
     
-    if nameIn == "" or emailIn == "":
+    if nameIn == "" or emailIn == "" or dateStart == "" or dateEnd == "":
         return
     else:
-        newEntry = [nameIn, emailIn, "REQUEST"]
+        newEntry = [nameIn, emailIn, dateStart, dateEnd, "REQUEST"]
         bookingFile.append(newEntry)
         writeFile(bookingFile, file)
         return render_template('booking.html', bookingFile=bookingFile)        
