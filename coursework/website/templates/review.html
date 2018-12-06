@@ -20,7 +20,16 @@
         
         <div class="flex-container">
             <div>
-                <h2>Submit Review</h2>
+                <h2>Submit Review</h2><br>
+                
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <h3 style="text-align: center; background-color: white; margin: 4px 0;">{{ message }}</h3>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
                 <form action="review" method="post"><br>
                     Name <input type="text" name="name" placeholder="Name"><br><br>
                     Enter Review<br><textarea name="review" rows="10" cols="40" placeholder="Enter your review here."></textarea><br><br>

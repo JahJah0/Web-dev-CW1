@@ -12,6 +12,7 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/booking">Book Room</a></li>
+                    <li><a class="active" href="/booking/admin">Admin</a></li>
                     <li><a href="/attractions">Attractions</a></li>
                     <li><a href="/review">Review</a></li>
                 </ul>
@@ -20,7 +21,18 @@
         
         <div class="flex-container">
             <div><h1>Admin Page</h1></div>
-                 
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <h3 style="text-align: center; background-color: white; margin: 4px 0;">{{ message }}</h3>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div><a href="/booking/admin/clearAll"><strong>Clear All Bookings</strong></a></div>
+            <div><a href="/booking/admin/clearDenied"><strong>Clear All Denied Bookings</strong></a></div>
+            
             <div class="table-container">
                 <h2>Booking Requests</h2>
                 {% for line in bookingFile %}

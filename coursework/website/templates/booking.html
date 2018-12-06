@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Booking</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+        <script type="text/javascript" src="{{url_for('static', filename='app.js')}}"></script>
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
 
@@ -12,15 +13,25 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a class="active" href="booking">Book Room</a></li>
+                    <li><a href="booking/admin">Admin</a></li>
                     <li><a href="attractions">Attractions</a></li>
                     <li><a href="review">Review</a></li>
+                    
                 </ul>
             </div>
         </div>
         
         <div class="flex-container">
             <div><h1>Book Room</h1></div>
-                 
+            
+             {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <h3 style="text-align: center; background-color: white; margin: 4px 0;">{{ message }}</h3>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
             <div>
                 <form action="booking" method="post">
                     Name: <input type="text" name="name" placeholder="Name" style="margin-right: 15px;">
