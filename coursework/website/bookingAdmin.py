@@ -1,3 +1,4 @@
+#page authentication code was based on (https://stackoverflow.com/questions/29725217/password-protect-one-webpage-in-flask-app)
 #python for admin booking page
 from website import *
 from functools import wraps
