@@ -1,9 +1,31 @@
 #python for admin booking page
 from website import *
+from functools import wraps
+from flask import Response
+
+#check if the entered credentials match
+def check_auth(username, password):
+    return username == "admin" and password == "Admin"
+
+#sends an unauthorized response which enables basic_auth
+def authenticate():
+    return Response('Login with valid credentials.', 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+#check if authorization is needed
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            #if credentials dont match keep asking
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
 
 #admin booking page
 #route 127.0.0.1:5000/booking/admin
 @app.route('/booking/admin', methods=['GET', 'POST'])
+@requires_auth
 def bookingPageAdmin():
     return displayBooking()
 
@@ -58,6 +80,7 @@ def denyBooking():
     return redirect(url_for('bookingPageAdmin')) 
 
 #clears everything from 'bookings.csv'
+#route 127.0.0.1:5000/booking/admin/clearAll 
 @app.route('/booking/admin/clearAll')
 def clearAllBookings():
     file = os.path.join(APP_CSV, 'bookings.csv')
@@ -66,6 +89,7 @@ def clearAllBookings():
     return redirect(url_for('bookingPageAdmin')) 
 
 #clears all bookings with "DENIED"
+#route 127.0.0.1:5000/booking/admin/clearDenied 
 @app.route('/booking/admin/clearDenied')
 def clearDeniedBookings():
     file = os.path.join(APP_CSV, 'bookings.csv')
@@ -79,7 +103,9 @@ def clearDeniedBookings():
     writeFile(bookingFile, file)
     flash('All denied bookings cleared.')
     return redirect(url_for('bookingPageAdmin'))    
-   
+
+
+    
 #display booking requests
 def displayBooking():
     file = os.path.join(APP_CSV, 'bookings.csv')
