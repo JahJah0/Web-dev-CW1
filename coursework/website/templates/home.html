@@ -3,6 +3,7 @@
     <head>
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='galleryjs.js') }}"></script>
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
 
@@ -29,30 +30,52 @@
                 </p>
             </div>
             
-            <div>
-                <div class="gallery">
-                    <h2>Image Gallery</h2>
-                    <a target="_blank" href="{{ url_for('static', filename='images/gallery1.jpg') }}">
-                    <img src="{{ url_for('static', filename='images/gallery1.jpg') }}"></a>
+            <div class="gallery">
+                <img src="{{ url_for('static', filename='images/gallery1.jpg') }}" onclick="openModal();currentSlide(1)">
                     
-                    <a target="_blank" href="{{ url_for('static', filename='images/gallery2.jpg') }}">
-                    <img src="{{ url_for('static', filename='images/gallery2.jpg') }}"></a>
+                <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" onclick="openModal();currentSlide(2)">
                     
-                    <a target="_blank" href="{{ url_for('static', filename='images/gallery3.jpg') }}">
-                    <img src="{{ url_for('static', filename='images/gallery3.jpg') }}"></a>
+                <img src="{{ url_for('static', filename='images/gallery3.jpg') }}" onclick="openModal();currentSlide(3)">
                     
-                    <a target="_blank" href="{{ url_for('static', filename='images/gallery4.jpg') }}">
-                    <img src="{{ url_for('static', filename='images/gallery4.jpg') }}"></a>
+                <img src="{{ url_for('static', filename='images/gallery4.jpg') }}" onclick="openModal();currentSlide(4)">
                     
-                    <a target="_blank" href="{{ url_for('static', filename='images/gallery5.jpg') }}">
-                    <img src="{{ url_for('static', filename='images/gallery5.jpg') }}"></a>
-                    
-                    <a target="_blank" href="{{ url_for('static', filename='images/gallery6.jpg') }}">
-                    <img src="{{ url_for('static', filename='images/gallery6.jpg') }}"></a>
-                </div>
+                <img src="{{ url_for('static', filename='images/gallery5.jpg') }}" onclick="openModal();currentSlide(5)">
+                  
+                <img src="{{ url_for('static', filename='images/gallery6.jpg') }}" onclick="openModal();currentSlide(6)">
             </div>
-            
-        </div>
+            <!-- The Modal/Lightbox -->
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery1.jpg') }}" style="width:100%">
+					</div>
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery2.jpg') }}" style="width:100%">
+					</div>
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery3.jpg') }}" style="width:100%">
+					</div>
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery4.jpg') }}" style="width:100%">
+					</div>
+					
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery5.jpg') }}" style="width:100%">
+					</div>
+					
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery6.jpg') }}" style="width:100%">
+					</div>
+
+					<!-- Next/previous controls -->
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="close" onclick="closeModal()">&times;</a>
+				</div>
+			</div>
     </body>
 </html>
-

@@ -3,7 +3,8 @@
     <head>
         <title>Attractions</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
-        <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='galleryjs.js') }}"></script>
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
 
     <body>
@@ -22,22 +23,67 @@
             <div><h1>Attractions</h1></div>
                  
             <div>
-                <p> TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEX<br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
-                    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT <br>
+                <p> There are many attractions within Norwich city, but here are some of the closest:<br>
+                    The local Football Stadium<br>
+                    There are 2 malls<br>
+                    An extensive highstreet with many shops and restaurants<br>
+                    A large community run market near the highstreet<br>
+                    And last but not least the large Theatre Royal<br>
                 </p>
-            </div>
+			</div>
             
-            <div>
-            <h2>Where to find us</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154950.56284158243!2d1.1467672545435896!3d52.64006035512377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d0aad55133f513%3A0x684ca5e00e12452f!2sNorwich!5e0!3m2!1sen!2suk!4v1544105068398" width="70%" height="400" frameborder="0" style="border:0"></iframe>
-            </div>
-            
+			<div>
+				<h2>Where to find us</h2>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154950.56284158243!2d1.1467672545435896!3d52.64006035512377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d0aad55133f513%3A0x684ca5e00e12452f!2sNorwich!5e0!3m2!1sen!2suk!4v1544105068398" width="70%" height="400" frameborder="0" style="border:0"></iframe>
+			</div>
+			
+			<div class="gallery">
+				<img src="{{ url_for('static', filename='images/gallery7.jpg') }}" onclick="openModal();currentSlide(1)">
+                    
+				<img src="{{ url_for('static', filename='images/gallery8.jpg') }}" onclick="openModal();currentSlide(2)">
+                    
+				<img src="{{ url_for('static', filename='images/gallery9.jpg') }}" onclick="openModal();currentSlide(3)">
+                    
+				<img src="{{ url_for('static', filename='images/gallery10.jpg') }}" onclick="openModal();currentSlide(4)">
+                    
+				<img src="{{ url_for('static', filename='images/gallery11.jpg') }}" onclick="openModal();currentSlide(5)">
+                  
+				<img src="{{ url_for('static', filename='images/gallery12.jpg') }}" onclick="openModal();currentSlide(6)">
+			</div>
+			<!-- The Modal/Lightbox -->
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery7.jpg') }}" style="width:100%">
+					</div>
+	
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery8.jpg') }}" style="width:100%">
+					</div>
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery9.jpg') }}" style="width:100%">
+					</div>
+
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery10.jpg') }}" style="width:100%">
+					</div>
+				
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery11.jpg') }}" style="width:100%">
+					</div>
+					
+					<div class="mySlides">
+						<img src="{{ url_for('static', filename='images/gallery12.jpg') }}" style="width:100%">
+					</div>
+
+					<!-- Next/previous controls -->
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="close" onclick="closeModal()">&times;</a>
+				</div>
+			</div>
         </div>
-        
     </body>
 </html>

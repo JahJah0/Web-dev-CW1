@@ -10,7 +10,8 @@ def check_auth(username, password):
 
 #sends an unauthorized response which enables basic_auth
 def authenticate():
-    return Response('Login with valid credentials.', 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
+    
+    return Response('Reload the page and enter valid credentials.', 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 #check if authorization is needed
 def requires_auth(f):
