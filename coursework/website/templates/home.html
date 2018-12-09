@@ -1,3 +1,4 @@
+<!-- This is the homepage/default. -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +7,7 @@
 		<script type="text/javascript" src="{{ url_for('static', filename='galleryjs.js') }}"></script>
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
-
+    <!-- Navigation bar -->
     <body>
         <div class="navBar">
             <div class="menu">
@@ -18,7 +19,7 @@
                 </ul>
             </div>
         </div>
-        
+        <!-- Display information --> 
         <div class="flex-container">
             <div><h1>Holiday Rental Site</h1></div>
                  
@@ -29,7 +30,7 @@
                     The end.
                 </p>
             </div>
-            
+            <!-- Display images --> 
             <div class="gallery">
                 <img src="{{ url_for('static', filename='images/gallery1.jpg') }}" onclick="openModal();currentSlide(1)">
                     

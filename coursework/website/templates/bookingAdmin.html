@@ -1,3 +1,4 @@
+<!-- This is the admin page for bookings. -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
-
+    <!-- Navigation bar -->
     <body>
         <div class="navBar">
             <div class="menu">
@@ -21,7 +22,7 @@
         
         <div class="flex-container">
             <div><h1>Admin Page</h1></div>
-            
+            <!-- Display flashed messages from server -->
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
@@ -29,10 +30,10 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            
+            <!-- Clear csv links -->
             <div><a href="/booking/admin/clearAll"><strong>Clear All Bookings</strong></a></div>
             <div><a href="/booking/admin/clearDenied"><strong>Clear All Denied Bookings</strong></a></div>
-            
+            <!-- Display all booking requests -->
             <div class="table-container">
                 <h2>Booking Requests</h2>
                 {% for line in bookingFile %}
@@ -53,11 +54,11 @@
                                 </div>
                             </td>
                         </tr>
-                        {% endif %}
                     </table>
+                    {% endif %}
                  {% endfor %}
             </div>
-            
+            <!-- Display all confirmed bookings -->
             <div class="table-container">
                 <h2>Bookings Confirmed</h2>
                 {% for line in bookingFile %}
@@ -70,11 +71,11 @@
                                 {% endfor %}
                             </td>
                         </tr>
-                        {% endif %}
                     </table>
+                    {% endif %}
                  {% endfor %}
             </div>
-            
+            <!-- Display all denied bookings -->
             <div class="table-container">
                 <h2>Bookings Denied</h2>
                 {% for line in bookingFile %}
@@ -87,8 +88,8 @@
                                 {% endfor %}
                             </td>
                         </tr>
-                        {% endif %}
                     </table>
+                    {% endif %}
                  {% endfor %}
             </div>
             

@@ -1,3 +1,4 @@
+<!-- This is the review page. --> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
-
+    <!-- Navigation bar --> 
     <body>
         <div class="navBar">
             <div class="menu">
@@ -21,7 +22,7 @@
         <div class="flex-container">
             <div>
                 <h2>Submit Review</h2><br>
-                
+                <!-- Display flashed messages from the server --> 
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
@@ -29,7 +30,7 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-                
+                <!-- Review form --> 
                 <form action="review" method="post"><br>
                     Name <input type="text" name="name" placeholder="Name"><br><br>
                     Enter Review<br><textarea name="review" rows="10" cols="40" placeholder="Enter your review here."></textarea><br><br>
@@ -43,7 +44,7 @@
                     <input type="submit" value="Submit" style="width: 100px;"/>
                 </form>
             </div>
-            
+            <!-- Display all reviews --> 
             <div class="table-container">
                 <h2>Reviews</h2>
                 {% for line in reviewsFile %}

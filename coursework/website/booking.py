@@ -6,7 +6,8 @@ from website import *
 @app.route('/booking', methods=['GET','POST'])
 def bookingPage():
     if request.method == 'POST':
-        return addBooking()
+        addBooking()
+        return displayBooking()
     else:
         return displayBooking()
 

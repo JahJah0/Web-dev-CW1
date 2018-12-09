@@ -1,3 +1,4 @@
+<!-- This is the booking page. -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +7,7 @@
         <script type="text/javascript" src="{{url_for('static', filename='app.js')}}"></script>
         <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
     </head>
-
+    <!-- Navigation bar -->  
     <body>
         <div class="navBar">
             <div class="menu">
@@ -23,7 +24,7 @@
         
         <div class="flex-container">
             <div><h1>Book Room</h1></div>
-            
+            <!-- Display flashed message from server -->  
              {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
@@ -31,7 +32,7 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            
+            <!-- Booking form -->
             <div>
                 <form action="booking" method="post">
                     Name: <input type="text" name="name" placeholder="Name" style="margin-right: 15px;">
@@ -41,9 +42,27 @@
                     <input type="submit" value="Submit" style="width: 100px;"/>
                 </form>
             </div>
-            
-            <div>
-                <h2>Calendar</h2>
+            <!-- Display all confirmed bookings -->
+            <div class="table-container">
+                <h2>Confirmed Booking Dates</h2>
+                
+                <table>
+                {% for line in bookingFile %}
+                    {% if line[-1] == "CONFIRMED" %}
+                        
+                        <tr>
+                            <th>Start date</th>
+                            <td>
+                                {{line[-3]}}
+                            </td>
+                            <th>End date</th>
+                            <td>
+                                {{line[-2]}}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </table>
             </div>
             
         </div>
